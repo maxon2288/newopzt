@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#0091E2">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<title>Элементы</title>
+	
+	<link rel="stylesheet" href="css/app.min.css">
+	
+</head>
+<body>
+
+
+
+<div class="popup popup-request mfp-hide" id="popup_request">
+	<form action="send.php" name="request" id="request">
+
+		<button class="popup-close" title="Закрыть" data-mfp-close>
+			<svg class="icon-popup-close"><use xlink:href="sprites/sprite.svg#icon-popup-close"></use></svg>
+		</button>
+
+		<span class="popup-heading">Принять участие</span><!-- /popup-heading -->
+
+		<input type="text" placeholder="Название Мероприятия" value="-" class="app-input" name="event" hidden>
+		
+		<label>Название компании:</label>
+		<input type="text" placeholder="" class="app-input" name="company">
+
+		<label>ФИО:</label>
+		<input type="text" placeholder="" class="app-input" name="fullName">
+
+		<label>Должность:</label>
+		<input type="text" placeholder="" class="app-input" name="position">
+
+		<label>Контактный телефон:</label>
+		<input type="text" placeholder="" class="app-input js-mask-phone" name="phone">
+
+		<label>E-mail:</label>
+		<input type="text" placeholder="" class="app-input" name="email">
+
+		<button class="btn btn-sm btn-blue btn-block">Отправить заявку</button>
+
+	</form>
+</div><!-- /popup -->
+
+<div class="popup popup-success mfp-hide" id="popup_success">
+	<form action="#">
+
+		<button class="popup-close" title="Закрыть" data-mfp-close>
+			<svg class="icon-popup-close"><use xlink:href="sprites/sprite.svg#icon-popup-close"></use></svg>
+		</button>
+		
+		<svg class="icon-success"><use xlink:href="sprites/sprite.svg#icon-success"></use></svg>
+		<span class="popup-heading">Заявка отправлена! </span>
+
+		<p class="popup-text">Сотрудники НП “ОПЖТ” свяжуться с Вами в ближайшее время.</p>
+
+		
+	</form>
+</div><!-- /popup -->
+
+<div class="popup popup-gallery mfp-hide" id="popup_gallery">
+	<form action="#">
+
+		<button class="popup-close" title="Закрыть" data-mfp-close>
+			<svg class="icon-popup-close"><use xlink:href="sprites/sprite.svg#icon-popup-close"></use></svg>
+		</button>
+
+
+		<div class="gallery">
+			<div class="gallery-slides owl-carousel">
+				<div class="gallery-slides-item"><img src="images/img-news-1.jpg"></div>
+				<div class="gallery-slides-item"><img src="images/img-news-2.jpg"></div>
+				<div class="gallery-slides-item"><img src="images/img-news-3.jpg"></div>
+				<div class="gallery-slides-item"><img src="images/img-news-4.jpg"></div>
+				<div class="gallery-slides-item"><img src="images/img-news-5.jpg"></div>
+				<div class="gallery-slides-item"><img src="images/img-news-6.jpg"></div>
+				<div class="gallery-slides-item"><img src="images/img-news-7.jpg"></div>
+				<div class="gallery-slides-item"><img src="images/img-news-8.jpg"></div>
+			</div><!-- /gallery-slides -->
+			<div class="gallery-thumbs owl-carousel">
+				<div class="gallery-thumbs-item"><img src="images/img-news-1.jpg"></div>
+				<div class="gallery-thumbs-item"><img src="images/img-news-2.jpg"></div>
+				<div class="gallery-thumbs-item"><img src="images/img-news-3.jpg"></div>
+				<div class="gallery-thumbs-item"><img src="images/img-news-4.jpg"></div>
+				<div class="gallery-thumbs-item"><img src="images/img-news-5.jpg"></div>
+				<div class="gallery-thumbs-item"><img src="images/img-news-6.jpg"></div>
+				<div class="gallery-thumbs-item"><img src="images/img-news-7.jpg"></div>
+				<div class="gallery-thumbs-item"><img src="images/img-news-8.jpg"></div>
+			</div><!-- /gallery-thumbs -->
+		</div><!-- /gallery -->
+
+
+	
+	</form>
+</div><!-- /popup -->
+
+
+<div class="app">
+
+	<header class="header">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-6 col-md-2">
+					
+					<div class="logo"><img src="images/logo.png" alt=""></div><!-- /logo -->
+
+				</div><!-- /col-xs-6 col-md-2 -->
+				<div class="col-xs-6 col-md-10">
+					
+					<nav class="nav">
+
+						<button class="nav-btn">
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+						</button><!-- /nav-btn -->
+
+						<div class="nav-dropdown">
+							<ul class="nav-menu">
+								<li>
+									<a href="#" class="nav-link">О нас <span class="icon-arrow-nav"></span></a>
+									<ul class="nav-sub">
+										<li>
+											<a href="#" class="nav-sub-link">
+												об объединении
+												<svg class="icon-arrow-right"><use xlink:href="sprites/sprite.svg#icon-arrow-right"></use></svg>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="nav-sub-link">
+												Список членов НП “ОПЖТ”
+												<svg class="icon-arrow-right"><use xlink:href="sprites/sprite.svg#icon-arrow-right"></use></svg>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="nav-sub-link">
+												Документы
+												<svg class="icon-arrow-right"><use xlink:href="sprites/sprite.svg#icon-arrow-right"></use></svg>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="nav-sub-link">
+												Партнеры
+												<svg class="icon-arrow-right"><use xlink:href="sprites/sprite.svg#icon-arrow-right"></use></svg>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="nav-sub-link">
+												Иновационная продукция
+												<svg class="icon-arrow-right"><use xlink:href="sprites/sprite.svg#icon-arrow-right"></use></svg>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="nav-sub-link">
+												Организации созданные при участии НП «ОПЖТ»
+												<svg class="icon-arrow-right"><use xlink:href="sprites/sprite.svg#icon-arrow-right"></use></svg>
+											</a>
+										</li>
+									</ul><!-- /nav-sub -->
+								</li>
+								<li><a href="#" class="nav-link">Комитеты</a></li>
+								<li><a href="#" class="nav-link">Техническое регулирование</a></li>
+								<li><a href="#" class="nav-link">Пресс-центр</a></li>
+								<li><a href="#" class="nav-link">Контакты</a></li>
+							</ul><!-- /nav-menu -->
+
+							<a href="#" class="nav-closed-link">
+								<svg class="icon-closed"><use xlink:href="sprites/sprite.svg#icon-closed"></use></svg>
+								Закрытый раздел
+							</a><!-- /nav-closed-link -->
+
+						</div><!-- /nav-dropdown -->
+					</nav><!-- /nav -->
+
+				</div><!-- /col-xs-6 col-md-10 -->
+			</div><!-- /row -->
+		</div><!-- /container-fluid -->
+	</header><!-- /header -->
+
+	<main class="main">
+		
+		<section class="breadcrumbs">
+			<div class="container-fluid">
+				<ul class="breadcrumbs-menu">
+					<li>
+						<a href="#" class="breadcrumbs-link">Главная страница</a>
+						<svg class="icon-arrow-link"><use xlink:href="sprites/sprite.svg#icon-arrow-link"></use></svg>
+					</li>
+					<li>
+						<a href="#" class="breadcrumbs-link">Элементы</a>
+						<svg class="icon-arrow-link"><use xlink:href="sprites/sprite.svg#icon-arrow-link"></use></svg>
+					</li>
+				</ul><!-- /breadcrumbs-menu -->
+			</div><!-- /container-fluid -->
+		</section><!-- /breadcrumbs -->
+
+		<section class="news">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-8">
+
+						<div class="app-content">
+
+							<h1>Модальные окна</h1>
+
+							<ol>
+								<li><a href="#popup_request" data-mfp>Принять участие</a></li>
+								<li><a href="#popup_success" data-mfp>Заявка отправлена!</a></li>
+								<li><a href="#popup_gallery" data-mfp>Фотослайдер</a></li>
+							</ol>
+
+							<hr>
+
+							<p>Midi-контроллер изменяем. Арпеджио иллюстрирует форшлаг. Звукосниматель изящно просветляет флажолет. Адажио, так или иначе, просветляет длительностный midi-контроллер. Действительно, рондо имитирует конструктивный шоу-бизнес.</p>
+
+
+							<h1>Большой заголовок H1</h1>
+
+							<h2>Большой заголовок H2</h2>
+
+							<h3>Большой заголовок H3</h3>
+
+							<h4>Большой заголовок H4</h4>
+
+							<h5>Большой заголовок H5</h5>
+
+							<br>
+
+							<div class="row">
+								<div class="col-sm-4">
+									
+									<label>ФИО</label>
+									<input type="text" placeholder="ФИО" class="app-input">
+
+								</div><!-- /col-sm-4 -->
+								<div class="col-sm-4">
+									
+									<label>Email</label>
+									<input type="text" placeholder="Email" class="app-input is-error">
+
+								</div><!-- /col-sm-4 -->
+								<div class="col-sm-4">
+									
+									<label>Телефон</label>
+									<input type="text" placeholder="Телефон" class="app-input is-success">
+
+								</div><!-- /col-sm-4 -->
+							</div><!-- /row -->
+
+							<div class="row">
+								<div class="col-sm-6">
+									
+									<select class="app-select" data-placeholder="Выпадающий список">
+										<option></option>
+										<option>1-й пункт списка</option>
+										<option>2-й пункт списка</option>
+										<option>3-й пункт списка</option>
+										<option>4-й пункт списка</option>
+										<option>5-й пункт списка</option>
+										<option>6-й пункт списка</option>
+										<option>7-й пункт списка</option>
+										<option>8-й пункт списка</option>
+										<option>9-й пункт списка</option>
+										<option>10-й пункт списка</option>
+									</select>
+
+								</div><!-- /col-sm-6 -->
+								<div class="col-sm-6">
+									
+									<select class="app-select is-success">
+										<option>Выпадающий список</option>
+										<option>1-й пункт списка</option>
+										<option>2-й пункт списка</option>
+										<option>3-й пункт списка</option>
+										<option>4-й пункт списка</option>
+										<option>5-й пункт списка</option>
+										<option>6-й пункт списка</option>
+										<option>7-й пункт списка</option>
+										<option>8-й пункт списка</option>
+										<option>9-й пункт списка</option>
+										<option>10-й пункт списка</option>
+									</select>
+
+								</div><!-- /col-sm-6 -->
+							</div><!-- /row -->
+
+							<textarea placeholder="Сообщение" class="app-textarea"></textarea>
+							
+							<button class="btn btn-blue" style="margin-right: 10px;">Button blue</button>
+
+							<button class="btn btn-red">Button red</button>
+
+							<hr>
+
+							<p>Хорус традиционен. Кластерное вибрато, по определению, самостоятельно. Синкопа многопланово просветляет тон-полутоновый дисторшн. Живая сессия имеет разнокомпонентный доминантсептаккорд.</p>
+
+							<figure class="app-figure__left">
+								<img src="images/img-news-1.jpg" alt="">
+								<figcaption>Иван, создал собственный стартап и послал всех к чертям</figcaption>
+							</figure>
+
+							<p>Иными словами, серпантинная волна полифигурно диссонирует самодостаточный алеаторически выстроенный бесконечный канон с полизеркальной векторно-голосовой структурой. Плавно-мобильное голосовое поле, на первый взгляд, использует динамический эллипсис, это и есть одномоментная вертикаль в сверхмногоголосной полифонической ткани. Внутридискретное арпеджио, в том числе, варьирует гармонический интервал. Мономерная остинатная педаль многопланово имитирует динамический эллипсис, не говоря уже о том, что рок-н-ролл мертв.</p>
+
+							<p>Векторно-зеркальная синхронность, согласно традиционным представлениям, имеет определенный эффект «вау-вау». Контрапункт контрастных фактур неравномерен. Ретро выстраивает октавер. Эти слова совершенно справедливы, однако крещендирующее хождение образует соноропериод. Жесткая ротация, на первый взгляд, начинает позиционный полиряд. Серпантинная волна трансформирует деструктивный рефрен.</p>
+							
+							<figure class="app-figure__right">
+								<img src="images/img-news-2.jpg" alt="">
+								<figcaption>Иван, создал собственный стартап и послал всех к чертям</figcaption>
+							</figure>
+
+							<p>рондо имеет контрапункт контрастных фактур. Пуантилизм, зародившийся в музыкальных микроформах начала ХХ столетия, нашел далекую историческую параллель в лице средневекового гокета, однако живая сессия выстраивает лайн-ап. В связи с этим нужно подчеркнуть, что алеаторика монотонно диссонирует хамбакер. Гармоническое микророндо многопланово просветляет громкостнoй прогрессийный период.</p>
+
+							<p>Динамический эллипсис представляет собой структурный полиряд. Хорус, следовательно, регрессийно трансформирует музыкальный сет. Глиссандо косвенно.</p>
+
+							<h4>Маркированный список</h4>
+
+							<ul>
+								<li>Хорус традиционен. Кластерное вибрато, по определению, самостоятельно.</li>
+								<li>Синкопа многопланово просветляет тон-полутоновый дисторшн.</li>
+								<li>Живая сессия имеет разнокомпонентный доминантсептаккорд.</li>
+								<li>Иными словами, серпантинная волна полифигурно диссонирует самодостаточный алеаторически выстроенный бесконечный канон с полизеркальной векторно-голосовой структурой.</li>
+							</ul>
+
+							<h4>Нумерованный список</h4>
+
+							<ol>
+								<li>Хорус традиционен. Кластерное вибрато, по определению, самостоятельно.</li>
+								<li>Синкопа многопланово просветляет тон-полутоновый дисторшн.</li>
+								<li>Живая сессия имеет разнокомпонентный доминантсептаккорд.</li>
+								<li>Иными словами, серпантинная волна полифигурно диссонирует самодостаточный алеаторически выстроенный бесконечный канон с полизеркальной векторно-голосовой структурой.</li>
+							</ol>
+
+							<blockquote>Хорус традиционен. Кластерное вибрато, по определению, самостоятельно. Синкопа многопланово просветляет тон-полутоновый дисторшн. Живая сессия имеет разнокомпонентный доминантсептаккорд.</blockquote>
+
+								
+								<table class="app-table">
+									<thead>
+										<tr>
+											<th>Заголовок первого столбца в одну или несколько строк</th>
+											<th>Заголовок первого столбца в одну или несколько строк</th>
+											<th>Заголовок</th>
+											<th>Заголовок</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Глиссандирующая ритмоформула многопланово использует серийный фьюжн.</td>
+											<td>Рондо имеет контрапункт контрастных фактур. Динамический эллипсис представляет собой структурный полиряд. </td>
+											<td>1 999 руб</td>
+											<td>2 500 руб</td>
+										</tr>
+										<tr>
+											<td>Глиссандирующая ритмоформула многопланово использует серийный фьюжн.</td>
+											<td>Рондо имеет контрапункт контрастных фактур. Динамический эллипсис представляет собой структурный полиряд. </td>
+											<td>1 999 руб</td>
+											<td>2 500 руб</td>
+										</tr>
+										<tr>
+											<td>Глиссандирующая ритмоформула многопланово использует серийный фьюжн.</td>
+											<td>Рондо имеет контрапункт контрастных фактур. Динамический эллипсис представляет собой структурный полиряд. </td>
+											<td>1 999 руб</td>
+											<td>2 500 руб</td>
+										</tr>
+									</tbody>
+								</table>
+
+							
+						</div><!-- /app-content -->
+						
+					</div><!-- /col-md-8 -->
+					<div class="col-md-4">
+
+						<aside class="news-aside">
+							<h2 class="news-aside-heading">Анонс мероприятий</h2><!-- /news-aside-heading -->
+							<ul class="news-list">
+								<li class="col-xs-12">
+									<div class="news-item">
+										<time class="news-item-date" datetime="2012-12-30">26.09.2017</time><!-- /news-item-date -->
+										<h3 class="news-item-title"><a href="#">Курс повышения квалификации по дополнительной образовательной программе «Требования стандарта ISO/TS 22163:2017 для организаций железнодорожного сектора.</a></h3><!-- /news-item-title -->
+										<p class="news-item-text">26-28 сентября 2017 г. в Учебном центре НОЧУ ДПО «Уральский межрегиональный сертификационный Центр» («УМСЦ») ...<a href="#"><svg class="icon-arrow-right"><use xlink:href="sprites/sprite.svg#icon-arrow-right"></use></svg></a></p><!-- /news-item-text -->
+									</div><!-- /news-item -->
+								</li>
+								<li class="col-xs-12">
+									<div class="news-item">
+										<time class="news-item-date" datetime="2012-12-30">15.09.2017</time><!-- /news-item-date -->
+										<h3 class="news-item-title"><a href="#">Информационно-практический семинар по теме: «Требования стандарта ISO/TS 22163:2017»</a></h3><!-- /news-item-title -->
+										<p class="news-item-text">С 11 по 15 сентября 2017 г. компания ООО «ИРИКОНС» будет проводить информационно-практический семинар ...<a href="#"><svg class="icon-arrow-right"><use xlink:href="sprites/sprite.svg#icon-arrow-right"></use></svg></a></p><!-- /news-item-text -->
+									</div><!-- /news-item -->
+								</li>
+								<li class="col-xs-12">
+									<div class="news-item">
+										<time class="news-item-date" datetime="2012-12-30">30.08.2017</time><!-- /news-item-date -->
+										<h3 class="news-item-title"><a href="#">Выставка «ЭКСПО 1520»: общее собрание членов НП «ОПЖТ» и Первый Конгресс международных транспортных и машиностроительных ассоциаций «Железнодорожная техника. Взгляд в будущее»</a></h3><!-- /news-item-title -->
+										<p class="news-item-text">30 августа 2017 г. в рамках «ЭКСПО 1520» состоится Общее собрание членов НП «ОПЖТ» ...<a href="#"><svg class="icon-arrow-right"><use xlink:href="sprites/sprite.svg#icon-arrow-right"></use></svg></a></p><!-- /news-item-text -->
+									</div><!-- /news-item -->
+								</li>
+							</ul><!-- /news-list -->
+
+							<a href="#" class="news-all">
+								Все мероприятия
+								<svg class="icon-more"><use xlink:href="sprites/sprite.svg#icon-more"></use></svg>
+							</a><!-- /news-all -->
+
+						</aside><!-- /news-aside -->
+						
+					</div><!-- /col-md-4 -->
+				</div><!-- /row -->
+				
+
+			</div><!-- /container-fluid -->
+		</section><!-- /news -->
+
+		
+	</main><!-- /main -->
+
+	<footer class="footer">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-md-3">
+					
+					<p class="copyright">2017 © НП "ОПЖТ"</p><!-- /copyright -->
+
+				</div><!-- /col-xs-12 col-md-3 -->
+				<div class="col-xs-12 col-sm-6 col-md-5">
+
+					<nav class="nav-info">
+						<ul class="nav-info-menu">
+							<li><a href="#" class="nav-info-link">Контакты</a></li>
+							<li><a href="#" class="nav-info-link">Полезные ссылки</a></li>
+							<li><a href="#" class="nav-info-link">Объявления предприятий-членов</a></li>
+							<li><a href="#" class="nav-info-link">Написать нам</a></li>
+						</ul><!-- /nav-info-menu -->
+					</nav><!-- /nav-info -->
+					
+				</div><!-- /col-xs-12 col-sm-6 col-md-5 -->
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					
+					<address class="address">
+						<p>Адрес: 107996, г. Москва, <br>Рижская площадь, дом 3</p>
+						<p>Контактный телефон: +7 (499) 262-27-73</p>
+						<p>Факс: +7 (499) 262-95-40</p>
+					</address><!-- /address -->
+
+				</div><!-- /col-xs-12 col-sm-6 col-md-4 -->
+			</div><!-- /row -->
+		</div><!-- /container-fluid -->
+	</footer><!-- /footer -->
+
+</div><!-- /app -->
+
+<script src="js/app.min.js"></script>
+
+
+</body>
+</html>

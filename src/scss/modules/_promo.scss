@@ -1,0 +1,82 @@
+// --------------------------------------------------------------------------
+// Promo
+// --------------------------------------------------------------------------
+
+.promo {
+	margin: 0 0 40rem;
+}
+
+.promo-container {
+	background: #014469 url(../images/bg-promo.jpg) center 0 no-repeat;
+	background-size: cover;
+}
+
+.promo-heading {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0;
+	padding: 88rem 110rem 92rem 0;
+	font-size: 36rem;
+	line-height: 40rem;
+	font-weight: 300;
+	color: #fff;
+	position: relative;
+	z-index: 10;
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 10px;
+		bottom: 0;
+		width: 560rem;
+		background: #005889;
+		z-index: -1;
+		transform: skew(40deg,0);
+		border-right: 190rem solid #0770AB;
+	}
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 10px;
+		width: 200vw;
+		background: #014469;
+		z-index: -2;
+		transform: skew(40deg,0);
+	}
+	@include breakpointMax(sm) {
+		display: block;
+		&:after {
+			display: none;
+		}
+		&:before {
+			right: -15px;
+			transform: skew(0,0);
+			opacity: 0.4;
+		}
+	}
+}
+
+.promo-caption {
+	position: relative;
+	background: #0091E2;
+	font-size: 16rem;
+	line-height: 23rem;
+	color: #fff;
+	text-align: center;
+	padding: 35rem 0 36rem;
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		border-left: 9px solid transparent;
+		border-right: 9px solid transparent;
+		border-bottom: 9px solid #FFFFFF;
+		margin: 0 0 0 -9px;
+	}
+}

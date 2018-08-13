@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#0091E2">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<title>Контакты</title>
+	
+	<link rel="stylesheet" href="css/app.min.css">
+	
+</head>
+<body>
+
+
+<div class="app">
+
+	<header class="header">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-6 col-md-2">
+					
+					<div class="logo"><img src="images/logo.png" alt=""></div><!-- /logo -->
+
+				</div><!-- /col-xs-6 col-md-2 -->
+				<div class="col-xs-6 col-md-10">
+					
+					<nav class="nav">
+
+						<button class="nav-btn">
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+						</button><!-- /nav-btn -->
+
+						<div class="nav-dropdown">
+							<ul class="nav-menu">
+								<li>
+									<a href="#" class="nav-link">О нас <span class="icon-arrow-nav"></span></a>
+									<ul class="nav-sub">
+										<li>
+											<a href="#" class="nav-sub-link">
+												об объединении
+												<svg class="icon-arrow-right"><use xlink:href="sprites/sprite.svg#icon-arrow-right"></use></svg>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="nav-sub-link">
+												Список членов НП “ОПЖТ”
+												<svg class="icon-arrow-right"><use xlink:href="sprites/sprite.svg#icon-arrow-right"></use></svg>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="nav-sub-link">
+												Документы
+												<svg class="icon-arrow-right"><use xlink:href="sprites/sprite.svg#icon-arrow-right"></use></svg>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="nav-sub-link">
+												Партнеры
+												<svg class="icon-arrow-right"><use xlink:href="sprites/sprite.svg#icon-arrow-right"></use></svg>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="nav-sub-link">
+												Иновационная продукция
+												<svg class="icon-arrow-right"><use xlink:href="sprites/sprite.svg#icon-arrow-right"></use></svg>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="nav-sub-link">
+												Организации созданные при участии НП «ОПЖТ»
+												<svg class="icon-arrow-right"><use xlink:href="sprites/sprite.svg#icon-arrow-right"></use></svg>
+											</a>
+										</li>
+									</ul><!-- /nav-sub -->
+								</li>
+								<li><a href="#" class="nav-link">Комитеты</a></li>
+								<li><a href="#" class="nav-link">Техническое регулирование</a></li>
+								<li><a href="#" class="nav-link">Пресс-центр</a></li>
+								<li><a href="#" class="nav-link">Контакты</a></li>
+							</ul><!-- /nav-menu -->
+
+							<a href="#" class="nav-closed-link">
+								<svg class="icon-closed"><use xlink:href="sprites/sprite.svg#icon-closed"></use></svg>
+								Закрытый раздел
+							</a><!-- /nav-closed-link -->
+
+						</div><!-- /nav-dropdown -->
+					</nav><!-- /nav -->
+
+				</div><!-- /col-xs-6 col-md-10 -->
+			</div><!-- /row -->
+		</div><!-- /container-fluid -->
+	</header><!-- /header -->
+
+	<main class="main">
+		
+		<section class="breadcrumbs">
+			<div class="container-fluid">
+				<ul class="breadcrumbs-menu">
+					<li>
+						<a href="#" class="breadcrumbs-link">Главная страница</a>
+						<svg class="icon-arrow-link"><use xlink:href="sprites/sprite.svg#icon-arrow-link"></use></svg>
+					</li>
+					<li>
+						<a href="#" class="breadcrumbs-link">Контакты</a>
+						<svg class="icon-arrow-link"><use xlink:href="sprites/sprite.svg#icon-arrow-link"></use></svg>
+					</li>
+				</ul><!-- /breadcrumbs-menu -->
+			</div><!-- /container-fluid -->
+		</section><!-- /breadcrumbs -->
+
+		<section class="contacts">
+
+			<div class="contacts-map" id="contacts-map"></div><!-- /contacts-map -->
+
+
+			<script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+
+			<script>
+				ymaps.ready(function () {
+
+					var mapOptions = {
+						preset: 'islands#greenDotIconWithCaption',
+						iconColor: '#FF5757'
+					}
+
+
+				    var myMap = new ymaps.Map('contacts-map', {
+			            center: [55.793414068954235,37.632538499999974],
+			            zoom: 16,
+			            controls: []
+			        }, {
+			            searchControlProvider: 'yandex#search'
+			        });
+
+				    myPlacemark01 = new ymaps.Placemark([55.793414068954235,37.632538499999974], {
+				    	iconCaption: 'Рижская площадь, 3'
+				    }, mapOptions);
+				    myMap.geoObjects.add(myPlacemark01);
+
+				    myMap.controls.add('zoomControl');
+				    
+				    myMap.behaviors.disable('scrollZoom');
+
+
+				});
+			</script>
+
+			<div class="container-fluid">
+				
+				<div class="row">
+					<div class="col-md-4">
+						
+						<h1 class="contacts-heading">Контакты</h1><!-- /contacts-heading -->
+
+						<address class="contacts-address">
+							Адрес: 107996, Москва, Рижская площадь 3<br>Телефон: +7 (499) 262-27-73<br>Факс: +7 (499) 262-95-40<br>Email: <a href="mailto:opzt@opzt.ru">opzt@opzt.ru</a>
+						</address><!-- /contacts-address -->
+
+					</div><!-- /col-md-4 -->
+					<div class="col-md-8">
+						
+						<div class="contacts-form">
+							<form action="#">
+
+								<h2 class="contacts-heading">Форма обратной связи</h2><!-- /contacts-heading -->
+
+								<div class="row">
+									<div class="col-sm-6">
+
+										<label>ФИО:</label>
+										<input type="text" placeholder="" class="app-input">
+
+									</div><!-- /col-sm-6 -->
+									<div class="col-sm-6">
+
+										<label>Компания:</label>
+										<input type="text" placeholder="" class="app-input">
+
+									</div><!-- /col-sm-6 -->
+								</div><!-- /row -->
+								<div class="row">
+									<div class="col-sm-6">
+
+										<label>Должность:</label>
+										<input type="text" placeholder="" class="app-input">
+										
+									</div><!-- /col-sm-6 -->
+									<div class="col-sm-6">
+
+										<label>Email:</label>
+										<input type="text" placeholder="" class="app-input is-error">
+										
+									</div><!-- /col-sm-6 -->
+								</div><!-- /row -->
+
+								<label>Ваше сообщение:</label>
+								<textarea class="app-textarea"></textarea>
+
+								<button class="btn btn-sm btn-blue">Отправить сообщение</button>
+
+							</form>
+						</div><!-- /contacts-form -->
+
+					</div><!-- /col-md-8 -->
+				</div><!-- /row -->
+
+				
+			</div><!-- /container-fluid -->
+		</section><!-- /contacts -->
+
+		
+	</main><!-- /main -->
+
+	<footer class="footer">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-md-3">
+					
+					<p class="copyright">2017 © НП "ОПЖТ"</p><!-- /copyright -->
+
+				</div><!-- /col-xs-12 col-md-3 -->
+				<div class="col-xs-12 col-sm-6 col-md-5">
+
+					<nav class="nav-info">
+						<ul class="nav-info-menu">
+							<li><a href="#" class="nav-info-link">Контакты</a></li>
+							<li><a href="#" class="nav-info-link">Полезные ссылки</a></li>
+							<li><a href="#" class="nav-info-link">Объявления предприятий-членов</a></li>
+							<li><a href="#" class="nav-info-link">Написать нам</a></li>
+						</ul><!-- /nav-info-menu -->
+					</nav><!-- /nav-info -->
+					
+				</div><!-- /col-xs-12 col-sm-6 col-md-5 -->
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					
+					<address class="address">
+						<p>Адрес: 107996, г. Москва, <br>Рижская площадь, дом 3</p>
+						<p>Контактный телефон: +7 (499) 262-27-73</p>
+						<p>Факс: +7 (499) 262-95-40</p>
+					</address><!-- /address -->
+
+				</div><!-- /col-xs-12 col-sm-6 col-md-4 -->
+			</div><!-- /row -->
+		</div><!-- /container-fluid -->
+	</footer><!-- /footer -->
+
+</div><!-- /app -->
+
+<script src="js/app.min.js"></script>
+
+
+</body>
+</html>

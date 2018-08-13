@@ -1,0 +1,53 @@
+// --------------------------------------------------------------------------
+// Entry
+// --------------------------------------------------------------------------
+
+.entry {
+
+}
+
+.entry-caption {
+	font-size: 16rem;
+	color: #353535;
+	margin: 0 0 32rem;
+}
+
+
+.entry-list {
+	margin: 0 0 40rem;
+	padding: 0;
+	list-style: none;
+	font-size: 14rem;
+	line-height: 19rem;
+	font-weight: 700;
+	counter-reset: point;
+	& > li {
+		position: relative;
+		border: 1px solid #DBDBDB;
+		padding: 16rem 15rem 16rem 42rem;
+		margin: 0 0 -1px;
+		&:after {
+            content: counter(point) '.';
+            counter-increment: point 1;
+            position: absolute;
+            top: 16rem;
+            left: 18rem;
+            font-weight: 700;
+        }
+	}
+}
+
+.entry-link {
+	display: block;
+	position: relative;
+	padding: 0 55rem 0 0;
+	u {
+		text-decoration: none;
+		border-bottom: 1px dashed currentColor;
+	}
+	[class^="icon-"] {
+		position: absolute;
+		right: 0;
+		top: -3rem;
+	}
+}

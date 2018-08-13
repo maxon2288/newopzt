@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="6.031" height="9.97" viewBox="0 0 6.031 9.97">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #0091e2;
+        fill-rule: evenodd;
+        filter: url(#filter);
+      }
+    </style>
+    <filter id="filter" x="387.969" y="1478" width="6.031" height="9.97" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#323232"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <path id="Rounded_Rectangle_2_copy" data-name="Rounded Rectangle 2 copy" class="cls-1" d="M391.872,1487.6l-3.527-3.7a1.341,1.341,0,0,1,0-1.84,1.207,1.207,0,0,1,1.763,0l3.527,3.69a1.354,1.354,0,0,1,0,1.85A1.207,1.207,0,0,1,391.872,1487.6Zm-3.527-3.7a1.341,1.341,0,0,1,0-1.84l3.527-3.7a1.207,1.207,0,0,1,1.763,0,1.354,1.354,0,0,1,0,1.85l-3.527,3.69A1.207,1.207,0,0,1,388.345,1483.9Z" transform="translate(-387.969 -1478)"/>
+</svg>
