@@ -1,309 +1,36 @@
 'use strict';
 
-// --------------------------------------------------------------------------
-// Plugins
-// --------------------------------------------------------------------------
+// Tars main-module init
+// It is a global var
+require('./tars/tars');
 
-var gulp         = require('gulp'),
-	browserSync  = require('browser-sync'),
-	watch 		 = require('gulp-watch'),
+const gulp = tars.packages.gulp;
 
-	concat		 = require('gulp-concat'),
-	plumber 	 = require('gulp-plumber'),
+// Require system and user's tasks
+// You can add your own tasks.
+// All your tasks have to be in tars/user-tasks folder
+tars.helpers.tarsFsHelper
+    .getTasks()
+    .forEach(file => require(file)());
 
-	pug          = require('gulp-pug'),
-	minifyHTML   = require('gulp-minify-html'),
+// Register links to main tasks without namespace
+// Build-dev task. Build dev-version (without watchers)
+gulp.task('build-dev', () => gulp.start('main:build-dev'));
 
+// Dev task. Build dev-version with watchers and livereload
+gulp.task('dev', () => gulp.start('main:dev'));
 
-	sass 		 = require('gulp-sass'),
-	uncss        = require('gulp-uncss'),
-	autoprefixer = require('gulp-autoprefixer'),
-	minify_css   = require('gulp-minify-css'),
-	cleanCSS     = require('gulp-clean-css'),
+// Build task. Build release version
+gulp.task('build', () => gulp.start('main:build'));
 
-	
-	uglify 		 = require('gulp-uglify'),
-	
-	
-	spritesmith  = require('gulp.spritesmith'),
-	cheerio 	 = require('gulp-cheerio'),
-	svgmin       = require('gulp-svgmin'),
-	svgSprite    = require("gulp-svg-sprite"),
-	replace      = require('gulp-replace'),
+// Init task. Just start init task
+gulp.task('init', () => gulp.start('service:init'));
 
-	clean        = require('del'),
+// Re-init task. Just start re-init task
+gulp.task('re-init', () => gulp.start('service:re-init'));
 
-	ftp          = require('gulp-ftp'),
-	zip      	 = require('gulp-zip');
+// Update-deps task. Just start update-deps task
+gulp.task('update-deps', () => gulp.start('service:update-deps'));
 
-
-var config       = require('./config');
-
-
-// --------------------------------------------------------------------------
-// Settings
-// --------------------------------------------------------------------------
-
-
-var src = {
-	html: 'src/**/*.html',
-	php: 'src/*.php',
-	fonts: 'src/fonts/*',
-	scss: 'src/scss/**/*.scss',
-	js: 'src/js/**/*.js',
-	images: 'src/images/**/*',
-	svg: 'src/svg/**/*',
-	
-	spriteImages: 'src/sprites/_images/*.png',
-	spriteSvg: 'src/sprites/_svg/*.svg'
-};
-
-var dist = {
-	html: 'dist/',
-	php: 'dist/',
-	fonts: 'dist/fonts/',
-	css: 'dist/css',
-	js: 'dist/js',
-	images: 'dist/images/',
-	svg: 'dist/svg/',
-
-	spriteImages: 'dist/sprites/',
-	spriteSvg: 'dist/sprites/'
-};
-
-
-// --------------------------------------------------------------------------
-// Zip
-// --------------------------------------------------------------------------
-
-gulp.task('zip', function () {
-    gulp.src(['./**', '!./node_modules/', '!./node_modules/**', '!./config.json'])
-        .pipe(zip(config.project.name + '.zip'))
-        .pipe(gulp.dest('./'))
-});
-
-
-// --------------------------------------------------------------------------
-// Ftp
-// --------------------------------------------------------------------------
-
-
-gulp.task('ftp', function () {
-    return gulp.src('dist/**/*')
-        .pipe(ftp(config.ftp));
-});
-
-// --------------------------------------------------------------------------
-// Sprites
-// --------------------------------------------------------------------------
-
-
-gulp.task('spriteImages', function () {
-	var spriteData = gulp.src(src.spriteImages).pipe(spritesmith({
-
-		algorithm: 'binary-tree',
-		padding: 10,
-
-		cssName: '_sprites.scss',
-		cssFormat: 'scss',
-
-	    imgName: 'sprite.png',
-	    imgPath: '../sprites/sprite.png',
-
-	    cssTemplate: 'src/sprites/_templates/scss.template.handlebars'
-
-	}));
-	spriteData.img.pipe(gulp.dest('dist/sprites/'));
-	spriteData.css.pipe(gulp.dest('src/sprites/'));
-	return spriteData;
-});
-
-
-
-gulp.task('spriteSvg', function () {
-    return gulp
-        .src(src.spriteSvg)
-        .pipe(cheerio({
-			run: function ($) {
-				$('[fill]').removeAttr('fill');
-				$('[stroke]').removeAttr('stroke');
-				// $('[style]').removeAttr('style');
-			},
-			parserOptions: { xmlMode: true }
-		}))
-		.pipe(replace('&gt;', '>'))
-        .pipe(svgSprite({
-        	mode: {
-				symbol: {
-					dest: "",
-					prefix : '.',
-            		dimensions : '.',
-					sprite: "sprite.svg",
-					render: {
-						scss: {
-							dest:'../../src/sprites/_spritesSvg.scss',
-							template: "src/sprites/_templates/scss.templateSvg.handlebars"
-						}
-					}
-				}
-			}
-			
-        }))
-        .pipe(gulp.dest('dist/sprites/'));
-});
-
-// --------------------------------------------------------------------------
-// Html or Pug
-// --------------------------------------------------------------------------
-
-gulp.task('html', function() {
-
-	return gulp.src(src.html)
-			
-		.pipe(plumber())
-		// .pipe(pug({pretty: true}))
-		// .pipe(minifyHTML({
-  //           quotes: true
-  //       }))
-		.pipe(gulp.dest(dist.html))
-		.pipe(browserSync.reload({ stream: true }))
-
-});
-
-
-// --------------------------------------------------------------------------
-// Php
-// --------------------------------------------------------------------------
-
-gulp.task('php', function() {
-
-	return gulp.src(src.php)
-			
-		.pipe(plumber())
-		.pipe(gulp.dest(dist.php))
-		.pipe(browserSync.reload({ stream: true }))
-
-});
-
-// --------------------------------------------------------------------------
-// Fonts
-// --------------------------------------------------------------------------
-
-gulp.task('fonts', function() {
-    gulp.src(src.fonts)
-        .pipe(gulp.dest(dist.fonts))
-        .pipe(browserSync.reload({ stream: true }))
-});
-
-
-// --------------------------------------------------------------------------
-// Images
-// --------------------------------------------------------------------------
-
-
-gulp.task('images', function() {
-
-	return gulp.src(src.images)
-		.pipe(gulp.dest(dist.images))
-		.pipe(browserSync.reload({ stream: true }))
-
-});
-
-
-// --------------------------------------------------------------------------
-// Svg
-// --------------------------------------------------------------------------
-
-
-gulp.task('svg', function() {
-
-	return gulp.src(src.svg)
-		.pipe(gulp.dest(dist.svg))
-		.pipe(browserSync.reload({ stream: true }))
-
-});
-
-// --------------------------------------------------------------------------
-// Scss
-// --------------------------------------------------------------------------
-
-gulp.task('scss', function() {
-
-	return gulp.src(src.scss)
-		
-		.pipe(plumber())
-		.pipe(sass())
-		.pipe(autoprefixer({
-		    browsers: ['last 2 versions', '> 1%', 'ie 9'],
-		    cascade: false
-		}))
-
-		// .pipe(uncss({
-		// 	html: ['src/**/*.html'],
-		// 	ignore: [/\.is-*/, /\.flexboxlegacy/, /\.backgroundblendmode/, /\.fancybox*/, /\.scroll*/, /\.jq-*/]
-		// }))
-
-		.pipe(concat('app.min.css'))
-		// .pipe(minify_css())
-		// .pipe(cleanCSS({compatibility: 'ie8'}))
-		
-		.pipe(gulp.dest(dist.css))
-		.pipe(browserSync.reload({ stream: true }))
-
-});
-
-
-// --------------------------------------------------------------------------
-// Js
-// --------------------------------------------------------------------------
-
-gulp.task('js', function() {
-	return gulp.src(src.js)
-
-		.pipe(plumber())
-		.pipe(uglify())
-		.pipe(concat('app.min.js'))
-		
-		.pipe(gulp.dest(dist.js))
-		.pipe(browserSync.reload({ stream: true }))
-});
-
-
-// --------------------------------------------------------------------------
-// Clean
-// --------------------------------------------------------------------------
-
-gulp.task('clean', function() {
-	return clean.sync('dist/');
-});
-
-// --------------------------------------------------------------------------
-// Watch
-// --------------------------------------------------------------------------
-
-
-gulp.task('watch', function() {
-
-	browserSync.init({
-		server: 'dist/',
-		port: 8080,
-		open: true,
-    	notify: false
-	});
-	
-	gulp.watch(src.spriteImages, ['spriteImages']);
-	gulp.watch(src.spriteSvg, ['spriteSvg']);
-
-	gulp.watch(src.html, ['html']);
-	gulp.watch(src.php, ['php']);
-	gulp.watch(src.fonts, ['fonts']);
-	gulp.watch(src.images, ['images']);
-	gulp.watch(src.scss, ['scss']);
-	gulp.watch(src.js, ['js']);
-	
-});
-
-
-// Gulp
-
-gulp.task('default', ['clean', 'spriteImages', 'spriteSvg', 'html', 'php', 'fonts', 'images', 'svg', 'scss', 'js', 'watch']);
+// Default task. Just start build task
+gulp.task('default', () => gulp.start('build'));
