@@ -32,12 +32,19 @@
         hide: { effect: "fade", duration: 150 },
         show: { effect: "fade", duration: 150 },
     });
-    var mySwiper = new Swiper('.swiper-container', {
-		spaceBetween: 30,
-        slidesPerView: 1,
+    var mySwiper = new Swiper('.new-client-slider', {
+		spaceBetween: 0,
+        slidesPerView: 6,
         loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            dynamicBullets: true,
+        navigation: {
+            nextEl: '.new-client-button-next',
+            prevEl: '.new-client-button-prev',
         },
     });
+
+    $('.new__img-cont').each(function(){
+        var goodsImg = $(this).find('img').attr('src');
+        $(this).css('background-image','url('+goodsImg+')');
+        $(this).find('img').css('display', 'none');
+    });
+    
