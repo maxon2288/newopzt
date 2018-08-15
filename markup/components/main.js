@@ -34,10 +34,10 @@ $( ".tabs" ).tabs({
 });
 
 
-$('.new-type-gallery-top .swiper-slide').each(function(){
-    var attrSlide = $(this).find('img').attr('src');
-    $(".new-type-gallery-thumbs .swiper-slide img").attr('src', attrSlide);    
-});
+// $('.new-type-gallery-top .swiper-slide').each(function(){
+//     var attrSlide = $(this).find('img').attr('src');
+//     $(".new-type-gallery-thumbs .swiper-slide img").attr('src', attrSlide);    
+// });
 
 $('.new__img-cont').each(function(){
     var goodsImg = $(this).find('img').attr('src');
@@ -68,13 +68,12 @@ var mySwiper = new Swiper('.new-client-slider', {
 
 
 var galleryTop = new Swiper('.new-type-gallery-top', {
-    
 });
 var galleryThumbs = new Swiper('.new-type-gallery-thumbs', {
-    spaceAround: 30,
-    centeredSlides: true,
+    spaceBetween: 40,
     slidesPerView: 4,
     touchRatio: 0.2,
+    slidesOffsetBefore: 50,
     slideToClickedSlide: true,
     navigation: {
         nextEl: '.swiper-button-next',

@@ -34,7 +34,8 @@ h1{
 }
 .new{
 	&__container-fluid-center{
-		max-width: 905px;
+		max-width: 905px !important;
+		overflow: hidden;
 	}
 	&__img-cont{
 		background-size: cover;
@@ -291,7 +292,7 @@ h1{
 }
 .news-article-content{
 	overflow: hidden;
-}
+}	
 
 .new-type-gallery-thumbs{
 	.swiper-slide{
@@ -304,6 +305,16 @@ blockquote:after {
     left: 0;
 }
 
+.news-share-trigger{
+	display: flex;
+	align-items: center;	
+	svg{
+		width: 15px;
+		margin-left: 10px;
+		fill: #0091e2;
+	}
+}
+
 .new-heading{
 	color: #269ae4;
 	text-transform: uppercase;
@@ -312,28 +323,42 @@ blockquote:after {
 	margin-bottom: 15px;
 }
 
+.ui-datepicker-calendar .ui-datepicker-current-day a,
+ .ui-datepicker-calendar .ui-datepicker-current-day a:hover{
+	border-color: #0080c9 !important;
+	color: #0080c9 !important;
+ }
+
+.ui-datepicker-title {
+    display: flex;
+    justify-content: center;
+}
 .news-share{
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	li{
+		display: flex;
+		align-items: center;
+	}
 }
 
 .new-type-gallery-top {
 	width: 100%;
 	height: 460px;
-	@media screen and(max-width: 630px) {
-		height: 300px;
-	}
-	@media screen and(max-width: 500px) {
-		height: 200px;
-	}
-	.swiper-slide{
-		img{
-			display: none;
+		@media screen and(max-width: 630px) {
+			height: 300px;
+		}
+		@media screen and(max-width: 500px) {
+			height: 200px;
+		}
+		.swiper-slide{
+			img{
+				display: none;
+			}
 		}
 	}
-  }
   .new-type-gallery-thumbs {
 	height: 20%;
 	height: 125px;
