@@ -52,12 +52,22 @@ var mySwiper = new Swiper('.new-client-slider', {
         nextEl: '.new-client-button-next',
         prevEl: '.new-client-button-prev',
     },
+    breakpoints:{
+        768: {
+            slidesPerView: 4,
+        },
+        600: {
+            slidesPerView: 2,
+        },
+        320: {
+            slidesPerView: 1,
+        },
+    },
 });
 
 
 
 var galleryTop = new Swiper('.new-type-gallery-top', {
-    spaceBetween: 30,
     
 });
 var galleryThumbs = new Swiper('.new-type-gallery-thumbs', {
@@ -70,6 +80,11 @@ var galleryThumbs = new Swiper('.new-type-gallery-thumbs', {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
+    breakpoints: {
+        768: {
+            slidesPerView: 2,
+        }
+    }
 });
 galleryTop.controller.control = galleryThumbs;
 galleryThumbs.controller.control = galleryTop;
