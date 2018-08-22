@@ -67,17 +67,16 @@ var mySwiper = new Swiper('.new-client-slider', {
 
 
 
-var galleryTop = new Swiper('.new-type-gallery-top', {
+var galleryTop = new Swiper('.new-type-gallery-top',{
 });
 var galleryThumbs = new Swiper('.new-type-gallery-thumbs', {
     spaceBetween: 40,
     slidesPerView: 4,
-    touchRatio: 0.2,
-    slidesOffsetBefore: 50,
+    centeredSlides: true,
     slideToClickedSlide: true,
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.new-type-button-prev',
+        prevEl: '.new-type-button-next',
     },
     breakpoints: {
         768: {
@@ -85,5 +84,8 @@ var galleryThumbs = new Swiper('.new-type-gallery-thumbs', {
         }
     }
 });
+
 galleryTop.controller.control = galleryThumbs;
 galleryThumbs.controller.control = galleryTop;
+
+galleryThumbs.slideTo(2);

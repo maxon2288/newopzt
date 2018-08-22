@@ -60,6 +60,7 @@ h1{
 		color: rgb(56, 58, 61);
 		font-weight: bold;
 		line-height: 2;
+		text-transform: uppercase;
 		  
 	}
 	&__news-item-container{
@@ -152,7 +153,7 @@ h1{
 	&__news-item-top-container{
 		display: flex;
 		width: 100%;
-		justify-content: flex-start;
+		justify-content: space-between;
 		@media screen and(max-width: 1024px) {
 			display: flex;
 			flex-direction: column;
@@ -167,6 +168,8 @@ h1{
 			height: 220px;
 		}
 	}
+
+	
 
 	
 	
@@ -409,3 +412,7 @@ blockquote:after {
   .swiper-button-next, .swiper-button-prev{
 	  margin-top: 0;
   }
+
+.col-md-4{
+	padding: 0;
+}
